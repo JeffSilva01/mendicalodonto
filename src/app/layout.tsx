@@ -1,3 +1,5 @@
+import { Header } from "@/components/Header";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
@@ -5,14 +7,21 @@ export const metadata = {
   description: "Clinica Odontologica",
 };
 
+const rubik = Rubik({
+  subsets: ["latin"],
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt">
-      <body>{children}</body>
+    <html lang="pt" className={rubik.className}>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
